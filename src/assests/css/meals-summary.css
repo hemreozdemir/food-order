@@ -1,0 +1,14 @@
+.meals-summary {
+    background-color: #383838;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: auto;
+    margin-top: -5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 60%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
