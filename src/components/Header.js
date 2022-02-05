@@ -16,7 +16,7 @@ const Header = () => {
             <header className="header">
                 <Badge className="cart-badge" pill color="secondary">
                     <ShoppingCart className="shopping-cart-icon" width={20} />{" "}
-                    <spa className="cart-badge-text">Your Cart</spa>
+                    <span className="cart-badge-text">Your Cart</span>
                     <Badge className="item-number-badge" pill color="danger">
                         1
                     </Badge>
