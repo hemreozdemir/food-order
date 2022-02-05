@@ -1,0 +1,50 @@
+.food-list-card {
+    border: 1px solid black;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 0.4em gray, -3px -3px 0.4em gray;
+    max-width: 55rem;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.food-list-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    padding-top: 0.75rem;
+}
+
+.amount-input {
+    max-width: 50px;
+    max-height: 25px;
+    margin-left: 1rem;
+    border-radius: 0.5rem !important;
+    text-align: center;
+}
+
+.food-info {
+    text-align: start;
+}
+
+.food-desc {
+    font-style: italic;
+}
+
+.amount-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.add-button {
+    border-radius: 0.5rem !important;
+    width: 100px;
+    margin-top: 0.5rem;
+    font-weight: 700 !important;
+}
+.food-name,
+.food-desc,
+.food-price {
+    margin-bottom: 0.3rem;
+}
