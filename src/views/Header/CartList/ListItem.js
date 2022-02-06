@@ -18,7 +18,7 @@ const ListItem = ({ item, changeAmount }) => {
         }
     };
     return (
-        <div className="cart-item d-flex justify-content-between">
+        <div className="cart-item d-sm-flex justify-content-between">
             <div className="food-info-cart d-flex">
                 <div className="food-properties">
                     <h3 className="food-name-cart">{item.name}</h3>

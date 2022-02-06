@@ -26,7 +26,7 @@
 }
 
 .food-info-cart {
-    width: 15rem;
+    min-width: 15rem;
     display: flex;
     justify-content: space-between;
 }
@@ -44,4 +44,15 @@
 .food-price-cart {
     margin-top: 1rem;
     color: #a41818;
+}
+
+@media (max-width: 576px) {
+    .cart-item {
+        position: relative;
+    }
+    .food-amount-cart {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+    }
 }
