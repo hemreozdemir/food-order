@@ -9,9 +9,9 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // ** Styles
 import "../../assests/css/cart-modal.css";
 
-const CartModal = ({ isOpen, toggleModal }) => {
+const CartModal = ({ isOpen, toggleModal, onOrder }) => {
     return (
-        <Modal isOpen={true} toggle={toggleModal} className="cart-modal">
+        <Modal isOpen={isOpen} toggle={toggleModal} className="cart-modal">
             {/* <ModalHeader toggle={toggleModal}>Modal title</ModalHeader> */}
             <ModalBody>
                 <List />
@@ -22,7 +22,9 @@ const CartModal = ({ isOpen, toggleModal }) => {
                     <h3>80TL</h3>
                 </div>
                 <div className="modal-action-buttons">
-                    <Button color="success">Order</Button>{" "}
+                    <Button color="success" onClick={onOrder}>
+                        Order
+                    </Button>{" "}
                     <Button color="danger" outline onClick={toggleModal}>
                         Cancel
                     </Button>

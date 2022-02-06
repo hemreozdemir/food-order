@@ -27,12 +27,7 @@ const DUMMY_CART_ITEMS = [
 ];
 
 const List = () => {
-    useEffect(() => {
-        //     console.log(DUMMY_CART_ITEMS[0]);
-        //     console.log(DUMMY_CART_ITEMS[1]);
-        //     console.log(DUMMY_CART_ITEMS[2]);
-        console.log("DUMMY_CART_ITEMS", DUMMY_CART_ITEMS);
-    }, [DUMMY_CART_ITEMS]);
+    useEffect(() => {}, []);
 
     const changeAmountHandler = (id, operator) => {
         const itemIndex = DUMMY_CART_ITEMS.map((item) => item.id).indexOf(id);
@@ -44,13 +39,16 @@ const List = () => {
                 DUMMY_CART_ITEMS[itemIndex].amount--;
             }
         } else {
-            console.log("0");
             DUMMY_CART_ITEMS[itemIndex].amount = 0;
         }
     };
 
     return DUMMY_CART_ITEMS.map((item) => (
-        <ListItem item={item} changeAmount={changeAmountHandler} />
+        <ListItem
+            key={item.id}
+            item={item}
+            changeAmount={changeAmountHandler}
+        />
     ));
 };
 

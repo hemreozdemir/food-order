@@ -33,7 +33,7 @@
 
 .food-amount-cart {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     margin-top: auto;
     margin-left: 1rem;
     padding: 0.2rem 0.8rem;
