@@ -1,3 +1,14 @@
+.cart-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+}
+
+.cart-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
 .amount-arrangement .btn-minus {
     margin-right: 0.5rem;
 }
