@@ -1,7 +1,7 @@
 import React from "react";
 
 // ** components
-import Header from "../components/Header";
+import Header from "./Header/Header";
 import MealsSummary from "./MealsSummary";
 import List from "./FoodList/List";
 
