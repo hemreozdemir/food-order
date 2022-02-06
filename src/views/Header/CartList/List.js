@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // ** Components
 import ListItem from "./ListItem";
@@ -15,19 +15,43 @@ const DUMMY_CART_ITEMS = [
         name: "Etli Ekmek",
         description: "Turkish pizza with ground meat",
         price: "25TL",
-        amount: 2
+        amount: 1
     },
     {
         id: "f2",
         name: "Meat Pie",
         description: "Turkish style pastry",
         price: "20TL",
-        amount: 3
+        amount: 1
     }
 ];
 
 const List = () => {
-    return <ListItem />;
+    useEffect(() => {
+        //     console.log(DUMMY_CART_ITEMS[0]);
+        //     console.log(DUMMY_CART_ITEMS[1]);
+        //     console.log(DUMMY_CART_ITEMS[2]);
+        console.log("DUMMY_CART_ITEMS", DUMMY_CART_ITEMS);
+    }, [DUMMY_CART_ITEMS]);
+
+    const changeAmountHandler = (id, operator) => {
+        const itemIndex = DUMMY_CART_ITEMS.map((item) => item.id).indexOf(id);
+        console.log("itemIndex", itemIndex);
+        if (operator) {
+            if (operator === "+") {
+                DUMMY_CART_ITEMS[itemIndex].amount++;
+            } else {
+                DUMMY_CART_ITEMS[itemIndex].amount--;
+            }
+        } else {
+            console.log("0");
+            DUMMY_CART_ITEMS[itemIndex].amount = 0;
+        }
+    };
+
+    return DUMMY_CART_ITEMS.map((item) => (
+        <ListItem item={item} changeAmount={changeAmountHandler} />
+    ));
 };
 
 export default List;

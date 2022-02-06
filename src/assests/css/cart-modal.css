@@ -1,7 +1,3 @@
-/* .modal-footer {
-    display: block !important;
-} */
-
 .amount-arrangement .btn-minus {
     margin-right: 0.5rem;
 }
@@ -16,6 +12,12 @@
 .btn-minus,
 .btn-plus {
     min-width: 50px;
+}
+
+.food-info-cart {
+    width: 15rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .food-amount-cart {
