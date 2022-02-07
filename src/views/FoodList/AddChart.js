@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
 // ** 3rd party components
 import { Input, Button } from "reactstrap";
 
-const AddChart = () => {
-    const onChangeAmount = (e) => {
-        console.log(e.target.value);
-    };
+// ** store imports
+import { MainContext } from "../../Store/Store";
+
+const AddChart = ({ foodId }) => {
+    const { state, dispatch } = useContext(MainContext);
+
+    const [amount, setAmount] = useState(1);
 
     const onAddCart = () => {
-        console.log("meal added to cart");
+        if (state.cartItems[foodId]) {
+            dispatch({
+                cartItems: {
+                    ...state.cartItems,
+                    [foodId]: state.cartItems[foodId] + amount
+                }
+            });
+        } else {
+            dispatch({ cartItems: { ...state.cartItems, [foodId]: amount } });
+        }
     };
 
     return (
@@ -18,13 +30,12 @@ const AddChart = () => {
                 <h5 className="amount-text">Amount</h5>
                 <Input
                     className="amount-input"
-                    defaultValue={1}
-                    onChange={onChangeAmount}
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
                 />
             </div>
             <Button className="add-button" outline onClick={onAddCart}>
-                {" "}
-                + Add{" "}
+                + Add
             </Button>
         </div>
     );

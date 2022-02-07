@@ -9,34 +9,10 @@ import { Card } from "reactstrap";
 // ** Stlye
 import "../../assests/css/foodlist.css";
 
-const List = () => {
-    const DUMMY_FOODS = [
-        {
-            id: "f0",
-            name: "Lentil Soup",
-            description: "Homemade soup to warm you up",
-            price: "15TL"
-        },
-        {
-            id: "f1",
-            name: "Etli Ekmek",
-            description: "Turkish pizza with ground meat",
-            price: "25TL"
-        },
-        {
-            id: "f2",
-            name: "Meat Pie",
-            description: "Turkish style pastry",
-            price: "20TL"
-        },
-        {
-            id: "f3",
-            name: "Baklava",
-            description: "Turkish traditional dessert, nectared",
-            price: "30TL"
-        }
-    ];
+// ** Domain
+import { DUMMY_FOODS } from "../../Domain/MealsList";
 
+const List = () => {
     return (
         <Card className="food-list-card">
             {DUMMY_FOODS.map((food) => (

@@ -11,7 +11,7 @@ const ListItem = ({ food }) => {
                 <p className="food-desc">{food.description}</p>
                 <h5 className="food-price">{food.price}</h5>
             </div>
-            <AddChart />
+            <AddChart foodId={food.id} />
         </div>
     );
 };
