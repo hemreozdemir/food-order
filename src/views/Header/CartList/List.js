@@ -1,55 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 
 // ** Components
 import ListItem from "./ListItem";
 
-const DUMMY_CART_ITEMS = [
-    {
-        id: "f0",
-        name: "Lentil Soup",
-        price: "15TL",
-        amount: 1
-    },
-    {
-        id: "f1",
-        name: "Etli Ekmek",
-        description: "Turkish pizza with ground meat",
-        price: "25TL",
-        amount: 1
-    },
-    {
-        id: "f2",
-        name: "Meat Pie",
-        description: "Turkish style pastry",
-        price: "20TL",
-        amount: 1
-    }
-];
+// ** Domain
+import { DUMMY_FOODS } from "../../../Domain/MealsList";
+
+// ** Store
+import { MainContext } from "../../../Store/Store";
 
 const List = () => {
-    useEffect(() => {}, []);
+    const { state, dispatch } = useContext(MainContext);
 
     const changeAmountHandler = (id, operator) => {
-        const itemIndex = DUMMY_CART_ITEMS.map((item) => item.id).indexOf(id);
-        console.log("itemIndex", itemIndex);
+        const itemIndex = DUMMY_FOODS.map((item) => item.id).indexOf(id);
         if (operator) {
-            if (operator === "+") {
-                DUMMY_CART_ITEMS[itemIndex].amount++;
-            } else {
-                DUMMY_CART_ITEMS[itemIndex].amount--;
-            }
+            dispatch({
+                cartItems: {
+                    ...state.cartItems,
+                    [id]: state.cartItems[id] + (operator === "+" ? 1 : -1)
+                }
+            });
         } else {
-            DUMMY_CART_ITEMS[itemIndex].amount = 0;
+            DUMMY_FOODS[itemIndex].amount = 0;
         }
     };
 
-    return DUMMY_CART_ITEMS.map((item) => (
-        <ListItem
-            key={item.id}
-            item={item}
-            changeAmount={changeAmountHandler}
-        />
-    ));
+    return DUMMY_FOODS.map(
+        (item) =>
+            Object.keys(state.cartItems).includes(item.id) && (
+                <ListItem
+                    key={item.id}
+                    item={item}
+                    amount={state.cartItems[item.id]}
+                    changeAmount={changeAmountHandler}
+                />
+            )
+    );
 };
 
 export default List;
