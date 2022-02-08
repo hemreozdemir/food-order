@@ -27,7 +27,7 @@ const ListItem = ({ item, amount, changeAmount }) => {
                 <div className="food-info-cart d-flex">
                     <div className="food-properties">
                         <h3 className="food-name-cart">{item.name}</h3>
-                        <h6 className="food-price-cart">{item.price}</h6>
+                        <h6 className="food-price-cart">{item.price}TL</h6>
                     </div>
                     <h6 className="food-amount-cart">x {amount}</h6>
                 </div>

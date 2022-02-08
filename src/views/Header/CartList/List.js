@@ -12,17 +12,8 @@ import { MainContext } from "../../../Store/Store";
 const List = () => {
     const { state, dispatch } = useContext(MainContext);
 
-    useEffect(() => {
-        console.log(
-            DUMMY_FOODS.filter((item) =>
-                Object.keys(state.cartItems).includes(item.id)
-            )
-        );
-    });
-
     const changeAmountHandler = (id, operator) => {
         const itemIndex = DUMMY_FOODS.map((item) => item.id).indexOf(id);
-        console.log("itemIndex", itemIndex);
         if (operator) {
             dispatch({
                 cartItems: {

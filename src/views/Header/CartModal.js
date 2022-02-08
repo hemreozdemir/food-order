@@ -23,12 +23,10 @@ const CartModal = ({ isOpen, toggleModal, onOrder }) => {
         let totalPrice = 0;
         DUMMY_FOODS.forEach((element) => {
             if (itemsIds.includes(element.id)) {
-                console.log(element.price);
-                console.log(state.cartItems[element.id]);
                 totalPrice += element.price * state.cartItems[element.id];
             }
         });
-        console.log(totalPrice);
+        return totalPrice;
     };
 
     return (
@@ -40,7 +38,7 @@ const CartModal = ({ isOpen, toggleModal, onOrder }) => {
             <ModalFooter className="d-block">
                 <div className="cart-summary d-flex justify-content-between">
                     <h3>Total Amount</h3>
-                    <h3>80TL</h3>
+                    <h3>{calculateTotalPrice()}TL</h3>
                 </div>
                 <div className="modal-action-buttons">
                     <Button color="success" onClick={onOrder}>
@@ -49,13 +47,6 @@ const CartModal = ({ isOpen, toggleModal, onOrder }) => {
                     <Button color="danger" outline onClick={toggleModal}>
                         Cancel
                     </Button>
-                    <button
-                        onClick={() => {
-                            calculateTotalPrice();
-                        }}
-                    >
-                        asdsa
-                    </button>
                 </div>
             </ModalFooter>
         </Modal>
