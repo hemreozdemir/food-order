@@ -1,8 +1,22 @@
 # Food ordering app with react
 
+food ordering app with context api.\
+backend is not used\
+data is not stored using database or local storage
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+## Dependencies
+- react-feather
+- react-toastify
+- reactstrap
+- bootstrap
+
+### npm install
+
+to install all dependencies
 
 ### `npm start`
 
