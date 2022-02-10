@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // ** Components
 import CartModal from "./CartModal";
@@ -13,7 +13,12 @@ import mealsImage from "../../assests/images/meals.jpg";
 import "../../assests/css/header.css";
 import { Badge } from "reactstrap";
 
+// ** store
+import { MainContext } from "../../store/Store";
+
 const Header = () => {
+    const { state } = useContext(MainContext);
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleModal = () => {
@@ -33,7 +38,7 @@ const Header = () => {
                     <ShoppingCart className="shopping-cart-icon" width={20} />{" "}
                     <span className="cart-badge-text">Your Cart</span>
                     <Badge className="item-number-badge" pill color="danger">
-                        1
+                        {state.cartItemsCount}
                     </Badge>
                 </Badge>
             </header>
