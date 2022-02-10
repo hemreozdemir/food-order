@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+// ** React imports
+import React, { useContext } from "react";
 
 // ** Components
 import ListItem from "./ListItem";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../../domain/MealsList";
+import { DUMMY_FOODS } from "../../../domain/Meals";
 
 // ** Store
 import { MainContext } from "../../../store/Store";

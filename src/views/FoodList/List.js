@@ -1,3 +1,4 @@
+// ** React imports
 import React from "react";
 
 // ** Components
@@ -10,7 +11,7 @@ import { Card } from "reactstrap";
 import "../../assests/css/foodlist.css";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../domain/MealsList";
+import { DUMMY_FOODS } from "../../domain/Meals";
 
 const List = () => {
     return (

@@ -1,3 +1,4 @@
+// ** React imports
 import React, { useState, useContext } from "react";
 
 // ** Components
@@ -43,7 +44,7 @@ const Header = () => {
                 </Badge>
             </header>
             <div className="header-image-container">
-                <img className="header-image" src={mealsImage} alt="imaj" />
+                <img className="header-image" src={mealsImage} alt="meals" />
             </div>
         </React.Fragment>
     );
