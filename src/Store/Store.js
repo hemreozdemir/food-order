@@ -5,6 +5,11 @@ let defaultCart = {
 };
 
 export const cartReducer = (state, action) => {
+    if (action.operation === "delete") {
+        let tempState = { ...state };
+        delete tempState.cartItems[action.id];
+        return { ...tempState };
+    }
     return { ...state, ...action };
 };
 

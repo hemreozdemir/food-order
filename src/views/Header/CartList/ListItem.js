@@ -14,7 +14,7 @@ const ListItem = ({ item, amount, changeAmount }) => {
         if (e.target.innerText === "+") {
             changeAmount(item.id, "+");
         } else {
-            if (state.cartItems[item.id] === 0) {
+            if (state.cartItems[item.id] === 1) {
                 changeAmount(item.id);
             } else {
                 changeAmount(item.id, "-");
