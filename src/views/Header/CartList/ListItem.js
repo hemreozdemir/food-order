@@ -4,7 +4,7 @@ import React, { useState, useContext } from "react";
 import { Button } from "reactstrap";
 
 // ** Store
-import { MainContext } from "../../../Store/Store";
+import { MainContext } from "../../../store/Store";
 
 const ListItem = ({ item, amount, changeAmount }) => {
     // const [amount, setAmount] = useState(1);

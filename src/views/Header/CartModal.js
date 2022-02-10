@@ -10,13 +10,16 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "../../assests/css/cart-modal.css";
 
 // ** Store
-import { MainContext } from "../../Store/Store";
+import { MainContext } from "../../store/Store";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../Domain/MealsList";
+import { DUMMY_FOODS } from "../../domain/MealsList";
 
-const CartModal = ({ isOpen, toggleModal, onOrder }) => {
-    const { state } = useContext(MainContext);
+// ** utility imports
+import { toastError, toastSuccess } from "../../utility/toastUtil";
+
+const CartModal = ({ isOpen, toggleModal }) => {
+    const { state, dispatch } = useContext(MainContext);
 
     const calculateTotalPrice = () => {
         let itemsIds = Object.keys(state.cartItems);
@@ -27,6 +30,20 @@ const CartModal = ({ isOpen, toggleModal, onOrder }) => {
             }
         });
         return totalPrice;
+    };
+
+    const clearCart = () => {
+        dispatch({ cartItems: {} });
+    };
+
+    const onOrder = () => {
+        if (Object.keys(state.cartItems).length !== 0) {
+            toastSuccess("Order completed successfully");
+            clearCart();
+        } else {
+            toastError("No meals in cart");
+        }
+        toggleModal();
     };
 
     return (

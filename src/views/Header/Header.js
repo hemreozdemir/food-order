@@ -19,17 +19,10 @@ const Header = () => {
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
-    const handleOrder = () => {
-        console.log("order completed succesfully"); //dummy
-        setIsModalOpen(!isModalOpen);
-    };
+
     return (
         <React.Fragment>
-            <CartModal
-                isOpen={isModalOpen}
-                toggleModal={toggleModal}
-                onOrder={handleOrder}
-            />
+            <CartModal isOpen={isModalOpen} toggleModal={toggleModal} />
             <header className="header">
                 <Badge
                     className="cart-badge"

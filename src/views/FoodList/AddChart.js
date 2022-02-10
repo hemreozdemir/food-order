@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import { Input, Button } from "reactstrap";
 
 // ** store imports
-import { MainContext } from "../../Store/Store";
+import { MainContext } from "../../store/Store";
 
 const AddChart = ({ foodId }) => {
     const { state, dispatch } = useContext(MainContext);
