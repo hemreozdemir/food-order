@@ -17,6 +17,7 @@ import { DUMMY_FOODS } from "../../domain/MealsList";
 
 // ** utility imports
 import { toastError, toastSuccess } from "../../utility/toastUtil";
+import { isObjectEmpty } from "../../utility/collectionsUtil";
 
 const CartModal = ({ isOpen, toggleModal }) => {
     const { state, dispatch } = useContext(MainContext);
@@ -37,7 +38,7 @@ const CartModal = ({ isOpen, toggleModal }) => {
     };
 
     const onOrder = () => {
-        if (Object.keys(state.cartItems).length !== 0) {
+        if (!isObjectEmpty(state.cartItems)) {
             toastSuccess("Order completed successfully");
             clearCart();
         } else {
