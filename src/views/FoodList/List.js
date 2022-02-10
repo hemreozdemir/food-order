@@ -10,7 +10,7 @@ import { Card } from "reactstrap";
 import "../../assests/css/foodlist.css";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../Domain/MealsList";
+import { DUMMY_FOODS } from "../../domain/MealsList";
 
 const List = () => {
     return (

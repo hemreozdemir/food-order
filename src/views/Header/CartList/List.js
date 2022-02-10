@@ -4,10 +4,10 @@ import React, { useContext, useEffect } from "react";
 import ListItem from "./ListItem";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../../Domain/MealsList";
+import { DUMMY_FOODS } from "../../../domain/MealsList";
 
 // ** Store
-import { MainContext } from "../../../Store/Store";
+import { MainContext } from "../../../store/Store";
 
 const List = () => {
     const { state, dispatch } = useContext(MainContext);
