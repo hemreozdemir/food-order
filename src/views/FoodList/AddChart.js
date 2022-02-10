@@ -31,7 +31,7 @@ const AddChart = ({ foodId }) => {
                 <Input
                     className="amount-input"
                     value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
+                    onChange={(e) => setAmount(parseInt(e.target.value))}
                 />
             </div>
             <Button className="add-button" outline onClick={onAddCart}>
