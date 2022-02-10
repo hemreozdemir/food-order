@@ -35,7 +35,7 @@ const Header = () => {
                     color="secondary"
                     onClick={() => toggleModal()}
                 >
-                    <ShoppingCart className="shopping-cart-icon" width={20} />{" "}
+                    <ShoppingCart className="shopping-cart-icon" width={18} />{" "}
                     <span className="cart-badge-text">Your Cart</span>
                     <Badge className="item-number-badge" pill color="danger">
                         {state.cartItemsCount}

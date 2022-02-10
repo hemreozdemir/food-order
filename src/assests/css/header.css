@@ -19,12 +19,14 @@
 
 .shopping-cart-icon {
     margin-right: 0.4rem;
+    margin-top: -0.25rem;
 }
 
 .item-number-badge {
     margin-left: 0.4rem;
     height: 20px;
     width: 20px;
+    padding-top: 5px;
 }
 
 .header-image-container {
