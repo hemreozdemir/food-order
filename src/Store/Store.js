@@ -1,10 +1,27 @@
+// ** React imports
 import React, { createContext, useReducer } from "react";
 
 let defaultCart = {
-    cartItems: {}
+    cartItems: {},
+    cartItemsCount: 0
+};
+
+const totalItemCount = (cartItems) => {
+    let totalCount = 0;
+    for (const item in cartItems) {
+        totalCount += cartItems[item];
+    }
+    return totalCount;
 };
 
 export const cartReducer = (state, action) => {
+    if (action.operation === "delete") {
+        let tempState = { ...state };
+        delete tempState.cartItems[action.id];
+        tempState.cartItemsCount = totalItemCount(state.cartItems);
+        return { ...tempState };
+    }
+    action.cartItemsCount = totalItemCount(action.cartItems);
     return { ...state, ...action };
 };
 

@@ -1,3 +1,4 @@
+// ** React imports
 import React, { useContext, useState } from "react";
 
 // ** 3rd party components
@@ -31,7 +32,7 @@ const AddChart = ({ foodId }) => {
                 <Input
                     className="amount-input"
                     value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
+                    onChange={(e) => setAmount(parseInt(e.target.value))}
                 />
             </div>
             <Button className="add-button" outline onClick={onAddCart}>

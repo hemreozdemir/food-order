@@ -1,19 +1,22 @@
-import React, { useContext, useEffect } from "react";
+// ** React imports
+import React, { useContext } from "react";
 
 // ** Components
 import ListItem from "./ListItem";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../../domain/MealsList";
+import { DUMMY_FOODS } from "../../../domain/Meals";
 
 // ** Store
 import { MainContext } from "../../../store/Store";
+
+// ** Utility
+import { isObjectEmpty } from "../../../utility/collectionsUtil";
 
 const List = () => {
     const { state, dispatch } = useContext(MainContext);
 
     const changeAmountHandler = (id, operator) => {
-        const itemIndex = DUMMY_FOODS.map((item) => item.id).indexOf(id);
         if (operator) {
             dispatch({
                 cartItems: {
@@ -22,20 +25,24 @@ const List = () => {
                 }
             });
         } else {
-            DUMMY_FOODS[itemIndex].amount = 0;
+            dispatch({ id: id, operation: "delete" });
         }
     };
 
-    return DUMMY_FOODS.map(
-        (item) =>
-            Object.keys(state.cartItems).includes(item.id) && (
-                <ListItem
-                    key={item.id}
-                    item={item}
-                    amount={state.cartItems[item.id]}
-                    changeAmount={changeAmountHandler}
-                />
-            )
+    return isObjectEmpty(state.cartItems) ? (
+        <p className="no-meals-message"> There is no meals in cart </p>
+    ) : (
+        DUMMY_FOODS.map(
+            (item) =>
+                Object.keys(state.cartItems).includes(item.id) && (
+                    <ListItem
+                        key={item.id}
+                        item={item}
+                        amount={state.cartItems[item.id]}
+                        changeAmount={changeAmountHandler}
+                    />
+                )
+        )
     );
 };
 

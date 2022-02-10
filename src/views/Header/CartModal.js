@@ -1,10 +1,11 @@
+// ** React imports
 import React, { useContext } from "react";
 
 // ** Components
 import List from "./CartList/List";
 
 // ** 3rd party
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 // ** Styles
 import "../../assests/css/cart-modal.css";
@@ -13,10 +14,11 @@ import "../../assests/css/cart-modal.css";
 import { MainContext } from "../../store/Store";
 
 // ** Domain
-import { DUMMY_FOODS } from "../../domain/MealsList";
+import { DUMMY_FOODS } from "../../domain/Meals";
 
 // ** utility imports
 import { toastError, toastSuccess } from "../../utility/toastUtil";
+import { isObjectEmpty } from "../../utility/collectionsUtil";
 
 const CartModal = ({ isOpen, toggleModal }) => {
     const { state, dispatch } = useContext(MainContext);
@@ -37,7 +39,7 @@ const CartModal = ({ isOpen, toggleModal }) => {
     };
 
     const onOrder = () => {
-        if (Object.keys(state.cartItems).length !== 0) {
+        if (!isObjectEmpty(state.cartItems)) {
             toastSuccess("Order completed successfully");
             clearCart();
         } else {
@@ -48,7 +50,6 @@ const CartModal = ({ isOpen, toggleModal }) => {
 
     return (
         <Modal isOpen={isOpen} toggle={toggleModal} className="cart-modal">
-            {/* <ModalHeader toggle={toggleModal}>Modal title</ModalHeader> */}
             <ModalBody>
                 <List />
             </ModalBody>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// ** React imports
+import React, { useState, useContext } from "react";
 
 // ** Components
 import CartModal from "./CartModal";
@@ -13,7 +14,12 @@ import mealsImage from "../../assests/images/meals.jpg";
 import "../../assests/css/header.css";
 import { Badge } from "reactstrap";
 
+// ** store
+import { MainContext } from "../../store/Store";
+
 const Header = () => {
+    const { state } = useContext(MainContext);
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleModal = () => {
@@ -30,15 +36,15 @@ const Header = () => {
                     color="secondary"
                     onClick={() => toggleModal()}
                 >
-                    <ShoppingCart className="shopping-cart-icon" width={20} />{" "}
+                    <ShoppingCart className="shopping-cart-icon" width={18} />{" "}
                     <span className="cart-badge-text">Your Cart</span>
                     <Badge className="item-number-badge" pill color="danger">
-                        1
+                        {state.cartItemsCount}
                     </Badge>
                 </Badge>
             </header>
             <div className="header-image-container">
-                <img className="header-image" src={mealsImage} alt="imaj" />
+                <img className="header-image" src={mealsImage} alt="meals" />
             </div>
         </React.Fragment>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 
+// ** styles
 import "../assests/css/meals-summary.css";
 
 const MealsSummary = () => {
